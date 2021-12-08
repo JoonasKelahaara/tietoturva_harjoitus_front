@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 
-function App() {
+export default function App() {
+  const [fname, setFname] = useState('');
+  const [lname, setLname] = useState('');
+  const [uname, setUname] = useState('');
+  const [passwd, setPasswd] = useState('');
+
+  const url = "http://localhost/tietoturva_harjoitustyo/index.php";
+
+  const send = e => {
+    e.preventDefault();
+
+    axios.post(url, {
+      fname : fname,
+      lname: lname,
+      uname: uname,
+      passwd: passwd
+    }).catch(e => console.log(e))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form>
+        <input value={fname} onChange={e=>setFname(e.target.value)} />
+        <input value={lname} onChange={e=>setLname(e.target.value)} />
+        <input value={uname} onChange={e=>setUname(e.target.value)} />
+        <input value={passwd} onChange={e=>setPasswd(e.target.value)} />
+        <button onClick={send}>Register</button>
+      </form>
     </div>
-  );
+  )
 }
-
-export default App;

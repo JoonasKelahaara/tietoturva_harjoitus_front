@@ -11,15 +11,15 @@ export default function App() {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
 
-  let data = new FormData(document.querySelector("form"));
+ /*  let data = new FormData(document.querySelector("form"));
 
   let base64cred = btoa(data.get("user")+":"+data.get("password"))
 
-  const url = "http://localhost/tietoturva_harjoitustyo/";
-
   useEffect(() => {
     console.log(data.get("user"))
-  })
+  }) */
+
+  const url = "http://localhost/tietoturva_harjoitustyo/";
 
   const send = e => {
     e.preventDefault();
@@ -32,7 +32,7 @@ export default function App() {
     }).catch(e => console.log(e))
   }
 
-  const logIn = e => {
+/*   const logIn = e => {
     e.preventDefault();
 
     let config = {
@@ -47,7 +47,7 @@ export default function App() {
       .then((response) => {
         setText(response.data.json());
       }).catch(e => console.log(e))
-  }
+  } */
 
   return (
     <div>
@@ -63,7 +63,7 @@ export default function App() {
         <input value={passwd} onChange={e=>setPasswd(e.target.value)} />
         <button onClick={send}>Register</button>
       </form>
-      <h3>Kirjaudu:</h3>
+      {/* <h3>Kirjaudu:</h3>
       <form>
         <label>Käyttäjänimi:</label>
         <input value={user} name="user" onChange={e=>setUser(e.target.value)} />
@@ -71,7 +71,7 @@ export default function App() {
         <input value={password} name="password" onChange={e=>setPassword(e.target.value)} />
         <button onClick={logIn}>Kirjaudu</button>
       </form>
-      <span>{text}</span>
+      <span>{text}</span> */}
     </div>
   )
 }

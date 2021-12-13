@@ -3,14 +3,14 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 
 export default function App() {
-  const [text, setText] = useState(null);
+  /* const [text, setText] = useState(null); */
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
   const [uname, setUname] = useState('');
   const [passwd, setPasswd] = useState('');
-  const [user, setUser] = useState('');
+  /* const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-
+ */
  /*  let data = new FormData(document.querySelector("form"));
 
   let base64cred = btoa(data.get("user")+":"+data.get("password"))
